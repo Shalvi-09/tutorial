@@ -3,3 +3,113 @@
 
 [watch](https://youtu.be/cuEtnrL9-H0)
 
+## Promise
+[watch](https://youtu.be/DHvZLI7Db8E)
+
+`Promise` in JS is similar to real life promise r=or commitment which either success or fails. Real use case for promise is for any thing which will take longer time to finish and you are not sure, when this finish or fail.
+
+Also Promise is asynchronous which means it is going to run in background and return something once it succed or fails.
+
+`Promise` accepts one function, which in turn accepts two arguements **resolve** and other one is **reject**. as name suggests they work as per their name. so when your `promise` succed you will be `resolving` it but when it fails you will be `rejecting` it.
+
+```
+let p=new Promise((resolve,reject)=>{
+// now here you do stuff
+//once success you resolve it
+//if it does not satisfy the condition you rejects it
+});
+```
+if your promise is successfull and you resolve it then it go inside `then((....)=>{})` block if it was rejected in will go inside `reject((....)=>{})` block.
+
+### Example
+```
+
+      let p=new Promise((resolve,reject)=>{
+      let sum=1+1;
+
+      if(sum === 2){
+          //you can pass anything and any number of arguments to resolve(...)
+           resolve("Success");
+      }
+      else{
+          //you can pass anything and any number of arguments to reject(...)
+          reject("Failed");
+      }
+});
+
+
+//now you can use this promise to do your stuff
+//for successfull then(res) block/method will be called 
+// for unsuccessfull catch(err) method will be called
+p.then(message=>{
+console.log("Successful "+message);
+}).catch((message)=>{
+console.log("Successful "+message);
+});
+
+```
+
+## async await
+
+So you akready know how promise works and how you can create one. In last section you used `then(...).catch(...)` to handle the promise but there is a neater way to achieve the same without loosing the benefits of clean code and thats the `async and await`.
+
+as you already know _if you resolve the query, it will call the then block and if it fails then it will catch() block_ in similar fashion, __if you resolve the promise, it will call the await statement and if it fails it go inside catch block of `try catch`__.
+
+isn't it simple, 
+
+### Example
+
+```
+function myP(){
+
+      let p=new Promise((resolve,reject)=>{
+      let sum=1+1;
+
+      if(sum === 2){
+          //you can pass anything and any number of arguments to resolve(...)
+           resolve("Success");
+      }
+      else{
+          //you can pass anything and any number of arguments to reject(...)
+          reject("Failed");
+      }
+});
+
+}
+
+```
+Now to handle this, you you can use async await like below:
+
+1. create a function either named, anonymous or arrow function any use __async__ in function signature
+2. use __await__ before calling the function
+
+```
+
+async myf(){
+
+let d = await myP(); // notice the await keyword here
+console.log(d)
+
+}
+
+//finally call this
+
+myf();
+
+
+//to handle the error use try-catch
+
+async myf(){
+try{
+
+let d = await myP(); // notice the await keyword here
+console.log(d)
+
+}
+catch(err){
+console.log("your promise was rejected");
+}
+}
+
+```
+
