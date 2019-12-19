@@ -3,6 +3,91 @@
 
 [watch](https://youtu.be/cuEtnrL9-H0)
 
+you might have used `axios` library or `$http` from angular or something similar but do you know, there is an out of the box support making ap call/network call.
+
+yup, guessed it right!, now you can use `fetch` api to achieve the same.
+
+
+### syntax
+```
+fetch("<url>",{//this object is optional})
+
+```
+
+Now few important point to note is:
+
+1. `fetch` api returns promise
+2. if you are `then().catch()`, then you may expect that it will execute `catch(..)` for any kind http failure like `404` etc but in case of `fetch` api its true. It simple logic is _no matter happens, it is always going to succeed except some hard failure net network issue_
+3. to determine success or failure of the call, you need to `ok` attribute of the response object return by `fecth` call.
+4. if you want to make a `post`, `put` etc kind of request you need to pass those data as object in second argument
+5. to get the response data yo you need to call `responseObject.json()` function which as `promise` in it self.
+
+
+### Example
+
+```
+
+let p=fetch("https://reqres.in/api/users");
+p.then(res=>{
+// do your stuff
+})
+
+//format of res object is like
+body:()
+bodyUsed:false,
+headers:{},
+ok:true,
+redirected:false,
+status:200,
+statusText:"",
+type:"cors",
+url:""
+
+```
+
+
+now to get the data, you need to call `res.json()` which will return another `promise`
+
+```
+let p=fetch("https://reqres.in/api/users");
+p.then(res=>{
+// do your stuff
+res.json();
+}).then(data => {
+//Now you received the actual data
+console.log(data);
+});
+
+```
+
+Now to check for error and all , you can do like this
+
+```
+
+```
+let p=fetch("https://reqres.in/api/users");
+p.then(res=>{
+// do your stuff
+
+if(res.ok){
+//request successful
+//do something
+res.json();
+}
+else{
+//request failed
+//do something
+}
+
+}).then(data => {
+//Now you received the actual data
+console.log(data);
+});
+
+```
+
+```
+
 ## Promise
 [watch](https://youtu.be/DHvZLI7Db8E)
 
@@ -99,7 +184,7 @@ myf();
 
 //to handle the error use try-catch
 
-async myf(){
+async myf(){ //notice the async in the function signature
 try{
 
 let d = await myP(); // notice the await keyword here
@@ -110,6 +195,7 @@ catch(err){
 console.log("your promise was rejected");
 }
 }
-
+//finally call it
+myf();
 ```
 
