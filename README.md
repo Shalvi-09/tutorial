@@ -48,6 +48,7 @@ url:""
 
 now to get the data, you need to call `res.json()` which will return another `promise`
 
+
 ```
 let p=fetch("https://reqres.in/api/users");
 p.then(res=>{
@@ -61,8 +62,6 @@ console.log(data);
 ```
 
 Now to check for error and all , you can do like this
-
-```
 
 ```
 let p=fetch("https://reqres.in/api/users");
@@ -86,7 +85,7 @@ console.log(data);
 
 ```
 
-```
+
 
 ## Promise
 [watch](https://youtu.be/DHvZLI7Db8E)
