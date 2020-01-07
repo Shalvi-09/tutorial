@@ -1,4 +1,201 @@
-# JS tutorial
+
+# Javascript
+
+- [Javascript](#javascript)
+  - [Part - 1](#part---1)
+    - [Javascript in html](#javascript-in-html)
+      - [Summary](#summary)
+  - [&quot;use strict&quot; directive for modern mode](#quotuse-strictquot-directive-for-modern-mode)
+        - [Example: &quot;use strict&quot; at script level](#example-quotuse-strictquot-at-script-level)
+        - [Example: Incorrect use of &quot;Use strict&quot; at functiona level](#example-incorrect-use-of-quotuse-strictquot-at-functiona-level)
+  - [Data types](#data-types)
+    - [number](#number)
+    - [bigint](#bigint)
+    - [string](#string)
+    - [boolean](#boolean)
+    - [null](#null)
+    - [undefined](#undefined)
+    - [object and symbol](#object-and-symbol)
+    - [typeof operator](#typeof-operator)
+        - [Example:](#example)
+
+## Part - 1
+
+### Javascript in html
+
+> The benefit of a __separate file__ is that the __browser__ will download it and **store it in its cache**.
+**Other pages** that reference the same script will **take it from the cache instead** of downloading it, so the file is actually downloaded only once.
+That **reduces traffic and makes pages faster.**
+
+> If **src** is set, the script content is ignored. A single `<script> tag` **can’t have both** the src attribute and code inside.
+
+#### Summary
+
+* We can use a `<script>` tag to add JavaScript code to a page.
+  
+* The type and language attributes are not required.
+  
+* A script in an external file can be inserted with` <script src="path/to/script.js"></script>`.
+
+## `"use strict"` directive for modern mode
+
+`"use strict"` `directive` tells the modern browsers to use and evaluates the javascript with Javascript syntax.
+
+The directive looks like a string: `"use strict"` or `'use strict'`
+
+*There’s no way to cancel use strict*
+**There is no directive** like `"no use strict"` that reverts the engine to old behavior.
+
+Once we enter strict mode, there’s no going back.
+##### Example: `"use strict"` at script level
+```
+"use strict";
+
+// this code works the modern way
+...
+
+```
+
+##### Example: Incorrect use of `"Use strict"` at functiona level
+
+```
+alert("some code");
+// "use strict" below is ignored--it must be at the top
+
+"use strict";
+
+// strict mode is not activated
+```
+
+## Data types
+
+JavaScript has 8 data types namely `number`,`bigint`,`string`,`boolean`,`null`,`undefined`,`object`,and `symbol`
+
+> Looks all data types names are in **lowercase**
+
+A varibale in JavaScript is not bound to any specific data type, meaning a JS variable can store string value at time and number value another time.
+
+That is JS is `dynamically typed` language and is not `statically typed` like languages like `java`,`C++` etc.
+
+Example
+
+```
+"use strict";
+
+let a="My Str value"; // type of variable `a` is String
+
+a=123; // now type of variable a is number not string
+
+```
+
+### number
+
+ The `number` data types stores both integer and floating point numbers.
+
+ `number` data type has few special values apart from normal integer and floating values. These are
+
+ **`Infinity`** , **`-Infinity`** and **`NaN`**
+
+ **`Infinity`** and **`-Infinity`** represents the normal matematical values you know. 
+ 
+ But **`Nan`** represnts a **computational error**.  It is a result of an incorrect or an undefined mathematical operation, for instance:
+ ```
+alert( "not a number" / 2 ); // NaN, such division is erroneous
+
+ ```
+
+ `NaN` is **sticky**. `*Any further operation on NaN returns NaN*`: So, if there’s a NaN somewhere in a mathematical expression, it propagates to the whole result.
+
+ ```
+alert( "not a number" / 2 + 5 ); // NaN
+ ```
+> **Mathematical operations are safe**
+Doing maths is “safe” in JavaScript. We can do anything: divide by zero, treat non-numeric strings as numbers, etc.
+The script will never stop with a fatal error (“die”). At worst, we’ll get NaN as the result.
+
+### bigint
+
+`bigint` represents number in range of **2<sup>53</sup>** and **-2<sup>53</sup>**
+
+> **Compatability issues**
+Right now BigInt is supported in Firefox and Chrome, but not in Safari/IE/Edge.
+
+### string
+
+as you know.
+
+There are three types of quotes, you can use.
+
+```
+let str = "Hello";
+let str2 = 'Single quotes are ok too';
+let phrase = `can embed another ${str}`;
+```
+
+### boolean
+
+have only two values `true` and `false`
+
+### null
+
+`null` in javascript represents **nothing** , **empty value** or **value unknown**
+
+### undefined
+
+`undefined` in JS represents **Value is not assigned**
+
+```
+let x;
+alert(x); //undefined
+```
+
+Technically its possible to assign, `undefined` to any variable but its is **not recommended**. `undefined` is usally used to check if avariable is actually assigned.
+
+To assign empty value or no value, you should use `null`
+
+### object and symbol
+
+Object represents complex data types, and `symbol` data type is used create **unique identifier** for object.
+
+To create `symbol` use `Symbol` constroctor.
+
+### typeof operator
+
+There are 8 data types in JS, out of which Except `object` reset are called as primitive.
+
+Now to check the data type of variable `typeof` operator can be used.
+
+`typeof` operator is used in two form.
+
+`typeof <variablename>`  and `typeof(<variablename>)`
+
+You can use either of the form.
+
+##### Example:
+
+```
+typeof undefined // "undefined"
+
+typeof 0 // "number"
+
+typeof 10n // "bigint"
+
+typeof true // "boolean"
+
+typeof "foo" // "string"
+
+typeof Symbol("id") // "symbol"
+
+typeof Math // "object"  (1)
+
+typeof null // "object"  (2)
+
+typeof alert // "function"  (3)
+```
+
+> **NOTE:** The result of typeof null is "object". That’s wrong. It is an officially recognized error in typeof, kept for compatibility. Of course, null is not an object. It is a special value with a separate type of its own. So, again, this is an error in the language.
+
+
 ## fetch api
 
 [watch](https://youtu.be/cuEtnrL9-H0)
