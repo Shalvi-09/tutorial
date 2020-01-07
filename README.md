@@ -1,4 +1,3 @@
-
 # Javascript
 
 - [Javascript](#javascript)
@@ -18,6 +17,15 @@
     - [object and symbol](#object-and-symbol)
     - [typeof operator](#typeof-operator)
         - [Example:](#example)
+  - [data type conversion and the Yellow magic](#data-type-conversion-and-the-yellow-magic)
+    - [String conversion](#string-conversion)
+    - [Number conversion](#number-conversion)
+      - [Example](#example)
+    - [boolean conversion](#boolean-conversion)
+  - [Logical ||,&amp;&amp; and !](#logical-ampamp-and)
+    - [short circuit evaluation](#short-circuit-evaluation)
+      - [Example](#example-1)
+    - [Using !! for converting type to boolean](#using--for-converting-type-to-boolean)
 
 ## Part - 1
 
@@ -194,6 +202,117 @@ typeof alert // "function"  (3)
 ```
 
 > **NOTE:** The result of typeof null is "object". That’s wrong. It is an officially recognized error in typeof, kept for compatibility. Of course, null is not an object. It is a special value with a separate type of its own. So, again, this is an error in the language.
+
+## data type conversion and the Yellow magic
+
+Most of the time, operators and functions automatically convert the values given to them to the right type.
+
+For example, alert automatically converts any value to a string to show it. Mathematical operations convert values to numbers.
+
+There are also cases when we need to explicitly convert a value to the expected type.
+
+
+### String conversion
+
+String conversion is mostly obvious. A `false` becomes `"false"`, `null` becomes `"null"`, etc.
+
+### Number conversion
+
+Numeric conversion happens in mathematical functions and expressions automatically.
+
+For example, when division / is applied to non-numbers:
+
+```
+alert( "6" / "2" ); // 3, strings are converted to numbers
+```
+
+> We can use the Number(value) function to explicitly convert a value to a number:
+
+```
+let str = "123";
+alert(typeof str); // string
+
+let num = Number(str); // becomes a number 123
+
+alert(typeof num); // number
+```
+
+> If the string is not a valid number, the result of such a conversion is NaN. For instance:
+
+```
+let age = Number("an arbitrary string instead of a number");
+
+alert(age); // NaN, conversion failed
+```
+
+| Value	| Becomes… |
+| ----- | :------- |
+| undefined | 	NaN |
+| null |	0       |
+| true and false |	1 and 0 |
+| string |	Whitespaces from the start and end are removed. If the remaining string is empty, the result is 0. Otherwise, the number is “read” from the string. An error gives NaN. |
+
+#### Example
+
+```
+alert( Number("   123   ") ); // 123
+alert( Number("123z") );      // NaN (error reading a number at "z")
+alert( Number(true) );        // 1
+alert( Number(false) );       // 0
+```
+
+### boolean conversion
+
+* Values that are intuitively “empty”, like 0, an empty string, null, undefined, and NaN, become false.
+* Other values become true.
+
+## Logical  `||`,`&&` and `!` 
+
+OR represented by `||`
+AND represented by  `&&`
+NOT represented by `!`
+
+### short circuit evaluation
+
+Operands can be not only values, but arbitrary expressions. OR evaluates and tests them from left to right. The evaluation stops when a truthy value is reached, and the value is returned. This process is called “a short-circuit evaluation” because it goes as short as possible from left to right.
+
+This is clearly seen when the expression given as the second argument has a side effect like a variable assignment.
+
+In the example below, x does not get assigned:
+
+#### Example
+```
+let x;
+
+true || (x = 1);
+
+alert(x); // undefined, because (x = 1) not evaluated
+
+```
+If, instead, the first argument is false, || evaluates the second one, thus running the assignment:
+
+```
+
+let x;
+
+false || (x = 1);
+
+alert(x); // 1
+```
+
+
+> Precedence of AND && is higher than OR ||
+
+### Using !! for converting type to boolean
+
+A double NOT !! is sometimes used for converting a value to boolean type:
+
+```
+alert( !!"non-empty string" ); // true
+alert( !!null ); // false
+```
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
 ## fetch api
