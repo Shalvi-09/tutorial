@@ -1,5 +1,14 @@
 # Javascript
 
+## Resources
+ * [JS Cheat sheet ](https://github.com/kamit-transient/modern-js-cheatsheet) 
+ * [You Don't know JS](https://github.com/getify/You-Dont-Know-JS)
+ * [MDN](https://developer.mozilla.org/en-US/search?q=)
+ * [ES6 Features with Example](http://es6-features.org/)
+ * [WesBos blog for ES6](http://wesbos.com/category/es6/)
+
+## Table of contents
+
 - [Javascript](#javascript)
   - [Part - 1](#part---1)
     - [Javascript in html](#javascript-in-html)
