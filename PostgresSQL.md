@@ -1,47 +1,5 @@
 # PostgreSql
 
-## PostgreSQL CREATE FUNCTION Statement
-
-### Syntax 
-
-```
-CREATE FUNCTION function_name(p1 type, p2 type)
- RETURNS type AS
-BEGIN
- -- logic
-END;
-LANGUAGE language_name;
-
-```
-
-In PostgreSQL, functions that have different parameters can share the same name. This is called function overloading, which is similar to function overloading in C++ or Java.
-
-#### Example
-
-```
-CREATE FUNCTION inc(val integer) RETURNS integer AS $$
-BEGIN
-RETURN val + 1;
-END; $$
-LANGUAGE PLPGSQL;
-
-```
-
-### Creating a trigger function
-
-A trigger function is similar to an ordinary function. However, a trigger function does not take any argument and has a return value with the type of trigger.
-
-The following illustrates the syntax of creating trigger function:
-
-```
-CREATE FUNCTION trigger_function() 
-   RETURNS trigger AS
-```
-
-A trigger function receives data about its calling environment through a special structure called `TriggerData`, which contains a set of local variables. For example,`OLD` and `NEW` represent the states of the row in the table before or after the triggering event. PostgreSQL provides other local variables starting with `TG_` as the prefix such as `TG_WHEN`, and `TG_TABLE_NAME`.
-
-Once you define a trigger function, you can bind it to one or more trigger events such as `INSERT`, `UPDATE`, and `DELETE`.
-
 
 ## PostgreSQL Stored Procedures
 
@@ -146,5 +104,142 @@ By using copying type feature, you receive the following advantages:
 * Second, when the data type of the column changes, you don’t need to change the variable declaration in the function to adapt to the new changes.
 * Third, you can refer the type of variables to data type of function arguments to create polymorphic functions since the type of internal variables can change from one call to the next.
 
+### PL/pgSQL Constants
 
+`constant_name CONSTANT data_type := expression;`
 
+#### Example
+
+```
+DO $$ 
+DECLARE
+   VAT CONSTANT NUMERIC := 0.1;
+   net_price    NUMERIC := 20.5;
+BEGIN 
+   RAISE NOTICE 'The selling price is %', net_price * ( 1 + VAT );
+END $$;
+```
+
+Output is 
+```
+NOTICE:  The selling price is 22.55
+```
+
+### PL/pgSQL Errors and Messages
+
+we will show you how to report messages and raise errors using the RAISE statement. In addition, we will introduce you to the ASSERT statement for inserting debugging checks into PL/pgSQL blocks.
+
+`RAISE level format;`
+
+Following the RAISE statement is the level option that specifies the error severity. PostgreSQL provides the following levels:
+
+* DEBUG
+* LOG
+* NOTICE
+* INFO
+* WARNING
+* EXCEPTION
+
+If you don’t specify the level, by default, the RAISE statement will use EXCEPTION level that raises an error and stops the current transaction. We will discuss the RAISE EXCEPTION later in the next section.
+
+The `format` is a string that specifies the message. The format uses percentage `( %)` placeholders that will be substituted by the next arguments. The number of placeholders must match the number of arguments, otherwise, PostgreSQL will report the following error message:
+
+#### PL/pgSQL raising errors
+
+To raise errors, you use the EXCEPTION level after the RAISE statement. Note that RAISE statement uses the EXCEPTION level by default.
+
+`USING option = expression`
+
+The option can be:
+
+* MESSAGE: set error message text
+* HINT: provide the hint message so that the root cause of the error is easier to be discovered.
+* DETAIL:  give detailed information about the error.
+* ERRCODE: identify the error code, which can be either by condition name or directly five-character SQLSTATE code. Please refer to the table of error codes and condition names.
+
+The expression is a string-valued expression.
+
+The following example raises a duplicate email error message:
+
+```
+DO $$ 
+DECLARE
+  email varchar(255) := 'info@postgresqltutorial.com';
+BEGIN 
+  -- check email for duplicate
+  -- ...
+  -- report duplicate email
+  RAISE EXCEPTION 'Duplicate email: %', email 
+      USING HINT = 'Check the email again';
+END $$;
+
+```
+
+Output is 
+```
+[Err] ERROR:  Duplicate email: info@postgresqltutorial.com
+HINT:  Check the email again
+
+```
+
+#### putting debugging checks using ASSERT statement
+
+Sometimes, a PL/pgSQL function is so big that makes it more difficult to detect the bugs. To facilitate this, PostgreSQL provides you with the ASSERT statement for adding debugging checks into a PL/pgSQL function.
+
+The following illustrates the syntax of the ASSERT statement:
+
+`ASSERT condition [, message];`
+
+The condition is a boolean expression. If the condition evaluates to TRUE, ASSERT statement does nothing. If the condition evaluates to FALSE or NULL, the ASSERT_FAILURE is raised.
+
+```
+DO $$ 
+DECLARE 
+   counter integer := -1;
+BEGIN 
+   ASSERT counter = 0, 'Expect counter starts with 0';
+END $$;
+
+```
+
+## PostgreSQL CREATE FUNCTION Statement
+
+### Syntax 
+
+```
+CREATE FUNCTION function_name(p1 type, p2 type)
+ RETURNS type AS
+BEGIN
+ -- logic
+END;
+LANGUAGE language_name;
+
+```
+
+In PostgreSQL, functions that have different parameters can share the same name. This is called function overloading, which is similar to function overloading in C++ or Java.
+
+#### Example
+
+```
+CREATE FUNCTION inc(val integer) RETURNS integer AS $$
+BEGIN
+RETURN val + 1;
+END; $$
+LANGUAGE PLPGSQL;
+
+```
+
+### Creating a trigger function
+
+A trigger function is similar to an ordinary function. However, a trigger function does not take any argument and has a return value with the type of trigger.
+
+The following illustrates the syntax of creating trigger function:
+
+```
+CREATE FUNCTION trigger_function() 
+   RETURNS trigger AS
+```
+
+A trigger function receives data about its calling environment through a special structure called `TriggerData`, which contains a set of local variables. For example,`OLD` and `NEW` represent the states of the row in the table before or after the triggering event. PostgreSQL provides other local variables starting with `TG_` as the prefix such as `TG_WHEN`, and `TG_TABLE_NAME`.
+
+Once you define a trigger function, you can bind it to one or more trigger events such as `INSERT`, `UPDATE`, and `DELETE`.
