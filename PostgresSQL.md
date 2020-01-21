@@ -243,3 +243,213 @@ CREATE FUNCTION trigger_function()
 A trigger function receives data about its calling environment through a special structure called `TriggerData`, which contains a set of local variables. For example,`OLD` and `NEW` represent the states of the row in the table before or after the triggering event. PostgreSQL provides other local variables starting with `TG_` as the prefix such as `TG_WHEN`, and `TG_TABLE_NAME`.
 
 Once you define a trigger function, you can bind it to one or more trigger events such as `INSERT`, `UPDATE`, and `DELETE`.
+
+### Function Parameters
+
+we will introduce you to various kinds of PL/pgSQL function parameters: IN, OUT, INOUT and VARIADIC.
+
+#### In parameter
+```
+CREATE OR REPLACE FUNCTION get_sum(
+   a NUMERIC, 
+   b NUMERIC) 
+RETURNS NUMERIC AS $$
+BEGIN
+   RETURN a + b;
+END; $$
+ 
+LANGUAGE plpgsql;
+```
+
+The get_sum() function accepts two parameters: a, and b and returns a numeric. The data types of the two parameters are NUMERIC. By default, the parameter’s type of any parameter in PostgreSQL is IN parameter. You can pass the IN parameters to the function but you cannot get them back as a part of the result.
+
+```
+SELECT get_sum(10,20);
+```
+#### PL/pgSQL OUT parameters
+
+The OUT parameters are defined as part of the function arguments list and are returned back as a part of the result. PostgreSQL supported the OUT parameters since version 8.1
+
+To define OUT parameters, you use the OUT keyword as demonstrated in the following example:
+
+```
+CREATE OR REPLACE FUNCTION hi_lo(
+   a NUMERIC, 
+   b NUMERIC,
+   c NUMERIC, 
+        OUT hi NUMERIC,
+   OUT lo NUMERIC)
+AS $$
+BEGIN
+   hi := GREATEST(a,b,c);
+   lo := LEAST(a,b,c);
+END; $$
+ 
+LANGUAGE plpgsql;
+```
+
+Because we use the OUT parameters, we don’t need to have a RETURN statement. The OUT parameters are useful in a function that needs to return multiple values without defining a custom type.
+
+The following statement calls the hi_lo function:
+
+
+`SELECT hi_lo(10,20,30);`
+
+The output of the function is a record, which is a custom type. To make the output separated as columns, you use the following syntax:
+
+`SELECT * FROM hi_lo(10,20,30);`
+
+#### PL/pgSQL INOUT parameters
+
+The INOUT parameter is the combination IN and OUT parameters. It means that the caller can pass the value to the function. The function then changes the argument and passes the value back as a part of the result.
+
+```
+CREATE OR REPLACE FUNCTION square(
+   INOUT a NUMERIC)
+AS $$
+BEGIN
+   a := a * a;
+END; $$
+LANGUAGE plpgsql;
+```
+
+#### PL/pgSQL Function Overloading
+
+PostgreSQL allows more than one function to have the same name, so long as the arguments are different. If more than one function has the same name, we say those functions are overloaded. When a function is called, PostgreSQL determines the exact function is being called based on the input arguments.
+
+
+### PL/pgSQL IF Statement
+
+```
+IF condition THEN
+   statement;
+END IF;
+```
+
+#### Example
+
+```
+DO $$
+DECLARE
+  a integer := 10;
+  b integer := 20;
+BEGIN 
+  IF a > b THEN
+   RAISE NOTICE 'a is greater than b';
+  END IF;
+ 
+  IF a < b THEN
+   RAISE NOTICE 'a is less than b';
+  END IF;
+ 
+  IF a = b THEN
+   RAISE NOTICE 'a is equal to b';
+  END IF;
+END $$;
+```
+#### if then else
+
+```
+IF condition THEN
+  statements;
+ELSE
+  alternative-statements;
+END IF;
+```
+
+#### Else if
+
+```
+IF condition-1 THEN
+  if-statement;
+ELSIF condition-2 THEN
+  elsif-statement-2
+...
+ELSIF condition-n THEN
+  elsif-statement-n;
+ELSE
+  else-statement;
+END IF:
+
+```
+
+### Switch case
+
+```
+CASE search-expression
+   WHEN expression_1 [, expression_2, ...] THEN
+      when-statements
+  [ ... ]
+  [ELSE
+      else-statements ]
+END CASE;
+
+```
+
+#### Example
+```
+CREATE OR REPLACE FUNCTION get_price_segment(p_film_id integer)
+   RETURNS VARCHAR(50) AS $$
+DECLARE 
+   rate   NUMERIC;
+   price_segment VARCHAR(50);
+BEGIN
+     -- get the rate based on film_id
+    SELECT INTO rate rental_rate 
+    FROM film 
+    WHERE film_id = p_film_id;
+      
+     CASE rate
+   WHEN 0.99 THEN
+            price_segment = 'Mass';
+   WHEN 2.99 THEN
+            price_segment = 'Mainstream';
+   WHEN 4.99 THEN
+            price_segment = 'High End';
+   ELSE
+       price_segment = 'Unspecified';
+   END CASE;
+   
+   RETURN price_segment;
+END; $$
+LANGUAGE plpgsql;
+```
+
+### Loop
+
+Sometimes, you need to execute a block of statements repeatedly until a condition becomes true. To do this, you use the PL/pgSQL LOOP statement. The following illustrates the syntax of the LOOP statement:
+
+```
+<<label>>
+LOOP
+   Statements;
+   EXIT [<<label>>] WHEN condition;
+END LOOP;
+```
+
+#### Example
+
+```
+CREATE OR REPLACE FUNCTION fibonacci (n INTEGER) 
+   RETURNS INTEGER AS $$ 
+DECLARE
+   counter INTEGER := 0 ; 
+   i INTEGER := 0 ; 
+   j INTEGER := 1 ;
+BEGIN
+ 
+   IF (n < 1) THEN
+      RETURN 0 ;
+   END IF; 
+   
+   LOOP 
+      EXIT WHEN counter = n ; 
+      counter := counter + 1 ; 
+      SELECT j, i + j INTO i,   j ;
+   END LOOP ; 
+   
+   RETURN i ;
+END ; 
+$$ LANGUAGE plpgsql;
+```
+#### While loop and For loop
