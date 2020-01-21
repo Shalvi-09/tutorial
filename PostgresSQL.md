@@ -1,5 +1,52 @@
 # PostgreSql
 
+## PostgreSQL Data Types
+
+PostgreSQL supports the following data types:
+
+* Boolean 
+
+    null, true, false
+* Character
+
+    char(n) , varchar(n), text(n)
+* Integer
+
+    SMALLINT, INT, SERIAL
+* Real number
+
+    float(n), real or float8, numeric(p,s)
+* Temporal
+
+    date, time, timestamp,timestamptz, interval
+* Array
+
+__NOTE__: Array index is `1` based not `ZERO` based
+    Array plays an important role in PostgreSQL. Every data type has its own companion array type e.g., integer has an integer[] array type, character has character[] array type, etc. In case you define your own data type, PostgreSQL creates a corresponding array type in the background for you.
+
+```
+CREATE TABLE contacts (
+   id serial PRIMARY KEY,
+   name VARCHAR (100),
+   phones TEXT []
+);
+```
+__Insert PostgreSQL array values__
+
+```
+INSERT INTO contacts (name, phones)
+VALUES
+   (
+      'John Doe',
+      ARRAY [ '(408)-589-5846',
+      '(408)-589-5555' ]
+   );
+   ```
+
+* JSON
+
+* UUID
+
 
 ## PostgreSQL Stored Procedures
 
