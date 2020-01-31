@@ -1,4 +1,7 @@
 
+http://thedeveloperspace.com/postgresql-finally-gets-stored-procedures/
+
+
 ##  PostgreSQL finally gets Stored Procedures 
 PostgreSQL has traditionally supported User Defined Functions since a long time. Functions allow us to store and execute procedural code repeatedly. The downside with Functions is its lack of support for Transactions in the Function body, the entire Function body is executed within an implicit transaction.
 
@@ -57,7 +60,12 @@ CREATE OR REPLACE PROCEDURE TestProcedure()
 For the complete syntax of CREATE PROCEDURE statement, check [this](https://www.postgresql.org/docs/11/sql-createprocedure.html) documentation page.
 
 
+## Execute a Stored Procedure
 
+You can execute a Stored Procedure using the CALL statement
+```
+CALL TestProcedure();
+```
 
 
 
