@@ -1,4 +1,6 @@
 https://aframe.io/docs/1.0.0/introduction/
+[http://www.webxrweek.com/](http://www.webxrweek.com/)
+[https://blog.halolabs.io/building-ar-vr-with-javascript-and-html-97af4434bcf6](https://blog.halolabs.io/building-ar-vr-with-javascript-and-html-97af4434bcf6)
 # Getting Started
 
 ```
@@ -329,3 +331,30 @@ Below is a complete example of using various community components from the Regis
 ```
 
 ![](https://cloud.githubusercontent.com/assets/674727/25502318/0f76ceec-2b4b-11e7-9829-cb3784b20dc1.gif)
+
+## Event And DOM Api
+__Where to place code ?__
+__Important:__ Before we go over the different ways to use JavaScript and DOM APIs, we prescribe encapsulating your JavaScript code within `A-Frame components`. Components modularize code, make logic and behavior visible from HTML, and ensure that code is executed at the correct time (e.g., after the scene and entities have attached and initialized). As the most basic example, to register a console.log component before <a-scene>:
+  ```
+  //JS file
+  
+  AFRAME.registerComponent('log', {
+  schema: {type: 'string'},
+
+  init: function () {
+    var stringToLog = this.data;
+    console.log(stringToLog);
+  }
+});
+
+//HTML file
+<a-scene log="Hello, Scene!">
+  <a-box log="Hello, Box!"></a-box>
+</a-scene>```
+
+
+`Do not try to put A-Frame-related JavaScript in a raw <script> tag after <a-scene> as we would with traditional 2D scripting. If we do, we’d have to take special measures to make sure code runs at the right time`
+
+## Writing a Component
+Components of A-Frame’s entity-component framework are JavaScript modules that can be mixed, matched, and composed onto entities to build appearance, behavior, and functionality. We can register component in JavaScript and use it declaratively from the DOM. Components are configurable, reusable, and shareable. Most code in an A-Frame application should live within components.
+
