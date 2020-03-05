@@ -1,3 +1,5 @@
+[Watch on Youtube](https://www.youtube.com/watch?v=WBPrJSw7yQA)
+
 ## This includes 
 
 * Environment Set
@@ -217,6 +219,117 @@ variable from some third part api.
 
 ## functions
 
+function <functionname>(<paramname>:<type>,...):<returntype>{
+  
+  }
+  
+  example:
+  
+  function add(num1:number,num2:number):number{
+  return num1+num2;
+  }
+  
+  add(1,4);//ok
+  add(1,'4');//error string does not work for number
+  
+  ### optional parameter
+  * to make parameter of the function __optional__ simply add `?` at the end of parameter name,
+  
+  * optional parameter must always be the lastone, after the required parameters.
+  
+  * There can be any number of optional paramater.
+  
+  ```
+  
+  function add(num1:number,num2?:number):number{
+  //see ? at end of num2 parameter
+  if(num2){
+  return num1+num2;
+  }
+  else{
+  return num1
+  }
+  }
+  
+  add(1,4);//ok
+  add(10);
+  ```
 
+### default parameter
 
+same as optional parameter but simply assign value as `=` in paramter name,
 
+```
+
+  function add(num1:number,num2?:number=10):number{
+  return num1+num2;
+  }
+  
+  add(1,4);//ok,5
+  add(15,);//25
+```
+
+## interface
+
+```
+interface <name>{
+
+<var1>:<type>;
+<var2>:<typename>
+
+}
+
+```
+
+To make a property optional simple add `?` at the and of variable name like function.
+
+you would use optional property usally for forms, where some off the the fields are optional.
+
+## class and access modifier
+
+```
+class Employee{
+
+emloyeename:string;
+
+constructor(name:string){
+this.employeename=name;
+}
+
+greet(){
+console.log(`Good morning${this.employeename}`);
+}
+}
+
+let e1=new Employee('am');
+e1.greet();
+
+```
+
+Inheritance based on class
+
+```
+class Manager extends Employee{
+
+constructor(name:string){
+super(name);
+}
+
+delegateWork(){
+console.log(`manager delegating task`);
+}
+}
+
+let m1=new manager("abc");
+m1.delegateWork();
+m1.greet();
+console.log(m1.employeename);
+```
+
+### Access modifiers
+
+by default each instnce memeber is `public` so you directly access it using the instance.
+
+`private` modifier makes instance variable private and can not be accessed outside the class not even in derived classes.
+
+`protected` modifiers can be used only in class and in derived classes but not outside.
