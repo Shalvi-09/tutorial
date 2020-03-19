@@ -496,16 +496,235 @@ In react A component has both `state` and `props`
 
 
 
+## Raise and Handle Events
+
+When you need to pass some data from children to its parent, we raise an event for that. When we need to pass data from parent to children  we pass that as props.
+
+In React pattern is:
+
+_The component that __owns__ a piece of the state, should be the one __modifying__ it._
+
+
+```
+//counter.jsx
+import React,{Component} from "react";
+
+
+class Counter extends Component{
+
+state={
+value:this.props.value, //see the this.props here
+}
+
+clickhandler=()=>{
+this.setState({value:this.state.value++});
+}
+render(){
+
+return  (
+      <div>
+      <span>{this.state.value}</span>
+      <button onClick={()=>this.clickhandler} className="btn btn-primary">
+     Increment
+     </button>
+         <button onDelete={()=>this.props.onDelete(this.props.id)} className="btn btn-primary">
+     Delete
+     </button>
+      </div>
+);
+}//render ends
+
+}//class ends here
+
+export default Counter;
+```
+
+
+```
+//counters.jsx
+import React,{Component} from "react";
+import Counter "./Counter";
+
+
+class Counters extends Component{
+
+state={
+counters:[
+      {id:1,value:4},
+      {id:2,value:0},
+      {id:3,value:1},
+      {id:4,value:3},
+      ],
+}
+
+handleDelete(counterId){
+let counters=this.state.counters;
+
+counters.filter(counter=>counter.id !== counterId);
+this.setState({counters});
+
+
+}
+render(){
+
+return  (
+      <div>
+      {
+      this.state.counters.map(counter=>(
+      <counter onDelete={handleDelete} key={counter.id} id={counter.id} value={counter.value} selected="true" />
+      ));
+      }
+      </div>
+);
+}//render ends
+
+}//class ends here
+
+export default Counters;
+```
+
+
+## Single source of truth
+
+So, event handling is working perfectly fine but there is big issue.
+
+if you see `counter.jsx` and `counters.jsx` , `counter.jsx component` has their own loacl state and `counters.jsx` as well.
+
+__Here, since `Counters` component is handling `conter` component, so `Counter` component is known called as `Controlled Component` and it react, a Controlled component should not have its own state__
+
+Since `Counter` component is having its own state, so when you add say __Reset Button__ in `Counters component` it will update the state of `Counters component` but that changes you wont see in DOM i.e on UI.
+
+Why, Because __state on controlled Components__ are initialized only once at the time component creation, thats the reason, even if your state in Counters component is update, its not being updated on the UI i.e DOM.
+
+
+To handle this issue you __should not have__ any __state__ in `Counter component` and hence the __methods__. Controlled component should only work on data provided by its parent.
+
+So finally working refactored code is below.
+
+NOTE: note for easy dev, instead of passing individual properties to child , you should always pass the object itself. This way even if you add attributes to the object you need to change only in place(Controlled component) not in parent component.
 
 
 
+```
+//counter.jsx
+import React,{Component} from "react";
 
 
+class Counter extends Component{
+
+render(){
+
+return  (
+      <div>
+      <span>{this.props.counters.value}</span>
+      <button onIncrement={()=>this.props.onIncrement(this.props.counters)} className="btn btn-primary">
+     Increment
+     </button>
+         <button onDelete={()=>this.props.onDelete(this.props.counters.id)} className="btn btn-primary">
+     Delete
+     </button>
+      </div>
+);
+}//render ends
+
+}//class ends here
+
+export default Counter;
+```
 
 
+```
+//counters.jsx
+import React,{Component} from "react";
+import Counter "./Counter";
 
 
+class Counters extends Component{
 
+state={
+counters:[
+      {id:1,value:4},
+      {id:2,value:0},
+      {id:3,value:1},
+      {id:4,value:3},
+      ],
+}
+
+handleDelete=(counterId)=>{
+let counters=this.state.counters;
+counters.filter(counter=>counter.id !== counterId);
+this.setState({counters});
+
+
+}
+
+handleIncrement=(counter)=>{
+//best practice is to never modify the state directly
+
+const counters=[...this.state.counters];
+const index=counters.indexOf(counter);
+counters[index]={...counter};//now counter[index] is different so state wont be modified directly
+counters[index].value++;
+this.setState({counters})
+
+}
+
+
+handleReset=()=>{
+
+}
+render(){
+
+return  (
+      <div>
+      <button className="btn btn-primary" onClick={()=>this.handleReset}>Reset</button>
+      {
+      this.state.counters.map(counter=>(
+      <counter onDelete={handleDelete} onIncrement={this.handleIncrement} key={counter.id} counters={this.state.counter}  />
+      ));
+      }
+      </div>
+);
+}//render ends
+
+}//class ends here
+
+export default Counters;
+```
+
+## Lifecycle Hooks
+
+react component goes through certain lifecycle hooks.
+
+* Mount
+This is the first lifecycle hooks, where __components are created__ and __inserted into the DOM__.
+
+There are few special methods which we can add to our component and that will get called during this lifecycle.
+
+In __Mounting Phase__ there are three lifecycle hooks:
+
+            ** constructor
+            ** render
+            ** componentDidMount
+
+React will  call these functions in order
+
+* Update
+This __phase__ get executed when `state` of the component get changed/updated.
+
+There are two lifecycle hooks:
+
+            ** render
+            ** componentDidUpdate
+
+* UnMount
+This phase you understand by name
+
+There is onlone hooks;
+
+            **componentWillUnmount
+            
+There are few more lifecycle hooks, but there are used rarely.
 
 
 
