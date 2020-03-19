@@ -409,14 +409,90 @@ return  (
 
 
 
+## Pass data to component
+
+__Every React componenet has propert called `props` which has access to all the userdefined props passed to that component__
+
+```
+//counter.jsx
+import React,{Component} from "react";
 
 
+class Counter extends Component{
+
+state={
+value:this.props.value, //see the this.props here
+}
+
+clickhandler=()=>{
+this.setState({value:this.state.value++});
+}
+render(){
+
+return  (
+      <div>
+      <span>{this.state.value}</span>
+      <button onClick={()=>this.clickhandler} className="btn btn-primary">
+     Increment
+     </button>
+      </div>
+);
+}//render ends
+
+}//class ends here
+
+export default Counter;
+```
 
 
+```
+//counters.jsx
+import React,{Component} from "react";
+import Counter "./Counter";
 
 
+class Counters extends Component{
 
+state={
+counters:[
+      {id:1,value:4},
+      {id:2,value:0},
+      {id:3,value:1},
+      {id:4,value:3},
+      ],
+}
 
+render(){
+
+return  (
+      <div>
+      {
+      this.state.counters.map(counter=>(
+      <counter key={counter.id} value={counter.value} selected="true" />
+      ));
+      }
+      </div>
+);
+}//render ends
+
+}//class ends here
+
+export default Counters;
+```
+
+__So far you passed data to other componenet as attribute, but if you want to pass something between opening and closing tags, ReactJs `props` object receives a special attribute called `children` of type `ReactElement`._ So use it if need it_
+
+## React developer tools like Vue Dev tool
+
+## state vs Props
+
+In react A component has both `state` and `props`
+
+* state refers to `private and local` copy of data only visible inside that component.
+
+* props refers to data paased to a component from another component.
+
+* state can be modied using setSate but props are readOnly
 
 
 
