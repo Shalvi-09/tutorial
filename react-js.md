@@ -727,6 +727,68 @@ There is onlone hooks;
 There are few more lifecycle hooks, but there are used rarely.
 
 
+### constructor
+
+```
+class Counter extends Component{
+
+constructor(){
+//first call the super
+super();
+//Its is usally used to set initial component state or props
+
+}
+
+//otherexample with props
+
+constructor(props){
+//first call the super
+super(props);
+//Its is usally used to set initial component state or props
+log(this.props);
+}
+...
+}
+```
+* After setting the state in constructor you can not call `setState({}); becoz this function is called only after the `render()` function is called.
+
+* you do not have direct access to `props` you need to pass that as an argument to the constructor and so to the `super` and access it using  __`this.props`__
+
+### render()
+it renders the component
+
+
+### componentDidMount()
+
+This is the best place to make all your `ajax` request to your server
+
+
+```
+class Counter extends Component{
+
+constructor(){
+//first call the super
+super();
+//Its is usally used to set initial component state or props
+
+}
+
+//otherexample with props
+
+constructor(props){
+//first call the super
+super(props);
+//Its is usally used to set initial component state or props
+log(this.props);
+}
+
+
+componentDidMount(){
+//do some ajax call
+}
+...
+}
+```
 
 
 
