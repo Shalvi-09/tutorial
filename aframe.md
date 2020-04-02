@@ -3,6 +3,28 @@ https://aframe.io/docs/1.0.0/introduction/
 [https://blog.halolabs.io/building-ar-vr-with-javascript-and-html-97af4434bcf6](https://blog.halolabs.io/building-ar-vr-with-javascript-and-html-97af4434bcf6)
 # Getting Started
 
+
+- [Getting Started](#getting-started)
+  - [What is WebVR?](#what-is-webvr)
+  - [Which Platforms Does A-Frame Support?](#which-platforms-does-a-frame-support)
+  - [HTML & Primitives](#html--primitives)
+    - [Primitives](#primitives)
+  - [Registering a Primitive](#registering-a-primitive)
+    - [Example](#example)
+    - [For example, Don McCurdy’s aframe-extras package includes an <a-ocean> primitive that wraps his ocean component. Here is the definition for <a-ocean>.](#for-example-don-mccurdys-aframe-extras-package-includes-an-a-ocean-primitive-that-wraps-his-ocean-component-here-is-the-definition-for-a-ocean)
+  - [Entity-Component-System](#entity-component-system)
+    - [Examples](#examples)
+  - [ECS in A-Frame](#ecs-in-a-frame)
+    - [Syntax](#syntax)
+    - [Component-Based Development](#component-based-development)
+  - [Community developed Components](#community-developed-components)
+    - [Where to Find Components](#where-to-find-components)
+      - [npm](#npm)
+      - [Using a Community Component](#using-a-community-component)
+  - [Event And DOM Api](#event-and-dom-api)
+  - [Writing a Component](#writing-a-component)
+
+
 ```
 <html>
   <head>

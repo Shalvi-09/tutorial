@@ -7,15 +7,15 @@
  * [ES6 Features with Example](http://es6-features.org/)
  * [WesBos blog for ES6](http://wesbos.com/category/es6/)
 
-## Table of contents
-
-- [Javascript](#javascript)
+## Table of contents- [Javascript](#javascript)
+  - [Resources](#resources)
+  - [Table of contents](#table-of-contents)
   - [Part - 1](#part---1)
     - [Javascript in html](#javascript-in-html)
       - [Summary](#summary)
-  - [&quot;use strict&quot; directive for modern mode](#quotuse-strictquot-directive-for-modern-mode)
-        - [Example: &quot;use strict&quot; at script level](#example-quotuse-strictquot-at-script-level)
-        - [Example: Incorrect use of &quot;Use strict&quot; at functiona level](#example-incorrect-use-of-quotuse-strictquot-at-functiona-level)
+  - [`"use strict"` directive for modern mode](#%22use-strict%22-directive-for-modern-mode)
+        - [Example: `"use strict"` at script level](#example-%22use-strict%22-at-script-level)
+        - [Example: Incorrect use of `"Use strict"` at functiona level](#example-incorrect-use-of-%22use-strict%22-at-functiona-level)
   - [Data types](#data-types)
     - [number](#number)
     - [bigint](#bigint)
@@ -29,12 +29,20 @@
   - [data type conversion and the Yellow magic](#data-type-conversion-and-the-yellow-magic)
     - [String conversion](#string-conversion)
     - [Number conversion](#number-conversion)
-      - [Example](#example)
-    - [boolean conversion](#boolean-conversion)
-  - [Logical ||,&amp;&amp; and !](#logical-ampamp-and)
-    - [short circuit evaluation](#short-circuit-evaluation)
       - [Example](#example-1)
+    - [boolean conversion](#boolean-conversion)
+  - [Logical  `||`,`&&` and `!`](#logical--and)
+    - [short circuit evaluation](#short-circuit-evaluation)
+      - [Example](#example-2)
     - [Using !! for converting type to boolean](#using--for-converting-type-to-boolean)
+  - [fetch api](#fetch-api)
+    - [syntax](#syntax)
+    - [Example](#example-3)
+  - [Promise](#promise)
+    - [Example](#example-4)
+  - [async await](#async-await)
+    - [Example](#example-5)
+
 
 ## Part - 1
 

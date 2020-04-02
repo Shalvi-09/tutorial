@@ -1,5 +1,37 @@
 # PostgreSql
 
+- [PostgreSql](#postgresql)
+  - [PostgreSQL Data Types](#postgresql-data-types)
+  - [PostgreSQL Stored Procedures](#postgresql-stored-procedures)
+    - [PL/pgSQL Block Structure](#plpgsql-block-structure)
+      - [PL/pgSQL block structure example](#plpgsql-block-structure-example)
+    - [PL/pgSQL Variables](#plpgsql-variables)
+      - [Example](#example)
+      - [Copying data types](#copying-data-types)
+    - [PL/pgSQL Constants](#plpgsql-constants)
+      - [Example](#example-1)
+    - [PL/pgSQL Errors and Messages](#plpgsql-errors-and-messages)
+      - [PL/pgSQL raising errors](#plpgsql-raising-errors)
+      - [putting debugging checks using ASSERT statement](#putting-debugging-checks-using-assert-statement)
+  - [PostgreSQL CREATE FUNCTION Statement](#postgresql-create-function-statement)
+    - [Syntax](#syntax)
+      - [Example](#example-2)
+    - [Creating a trigger function](#creating-a-trigger-function)
+    - [Function Parameters](#function-parameters)
+      - [In parameter](#in-parameter)
+      - [PL/pgSQL OUT parameters](#plpgsql-out-parameters)
+      - [PL/pgSQL INOUT parameters](#plpgsql-inout-parameters)
+      - [PL/pgSQL Function Overloading](#plpgsql-function-overloading)
+    - [PL/pgSQL IF Statement](#plpgsql-if-statement)
+      - [Example](#example-3)
+      - [if then else](#if-then-else)
+      - [Else if](#else-if)
+    - [Switch case](#switch-case)
+      - [Example](#example-4)
+    - [Loop](#loop)
+      - [Example](#example-5)
+      - [While loop and For loop](#while-loop-and-for-loop)
+
 ## PostgreSQL Data Types
 
 PostgreSQL supports the following data types:

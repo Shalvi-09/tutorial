@@ -1,6 +1,26 @@
 (https://www.youtube.com/watch?v=Ke90Tje7VS0)[Watch]
 
 
+- [Basics of ReactJs](#basics-of-reactjs)
+  - [Adding attribute](#adding-attribute)
+  - [add class](#add-class)
+  - [style attribute](#style-attribute)
+  - [Rendering classes dynamically](#rendering-classes-dynamically)
+  - [using loops in React](#using-loops-in-react)
+  - [Events](#events)
+  - [Update the component state](#update-the-component-state)
+  - [passing argument to event handler function](#passing-argument-to-event-handler-function)
+  - [Composing react components  to build UI](#composing-react-components-to-build-ui)
+  - [Pass data to component](#pass-data-to-component)
+  - [React developer tools like Vue Dev tool](#react-developer-tools-like-vue-dev-tool)
+  - [state vs Props](#state-vs-props)
+  - [Raise and Handle Events](#raise-and-handle-events)
+  - [Single source of truth](#single-source-of-truth)
+  - [Lifecycle Hooks](#lifecycle-hooks)
+    - [constructor](#constructor)
+    - [render()](#render)
+    - [componentDidMount()](#componentdidmount)
+
 
 # Basics of ReactJs
 ```

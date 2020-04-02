@@ -1,6 +1,23 @@
 # Eclipse Shortcuts
 [Links](https://dzone.com/articles/effective-eclipse-shortcut-key)
 
+- [Eclipse Shortcuts](#eclipse-shortcuts)
+  - [Show all shortcuts](#show-all-shortcuts)
+        - [`CTRL + E` Shows all open editors](#ctrl--e-shows-all-open-editors)
+        - [` CTRL + F7` Move between When in the editor, press Ctrl+F7 to switch to the Package Explorer, or hold Ctrl and press F7 multiple times to switch to other views.](#ctrl--f7-move-between-when-in-the-editor-press-ctrlf7-to-switch-to-the-package-explorer-or-hold-ctrl-and-press-f7-multiple-times-to-switch-to-other-views)
+        - [` CTRL + F8` Move between perspectives ex: java, debug, etc.](#ctrl--f8-move-between-perspectives-ex-java-debug-etc)
+        - [` CTRL + M` Maximize or Unmaximize editor](#ctrl--m-maximize-or-unmaximize-editor)
+        - [` CTRL + SHIFT + F` Format code](#ctrl--shift--f-format-code)
+        - [` CTRL + N` Open a new type wizard.](#ctrl--n-open-a-new-type-wizard)
+        - [` CTRL + T` open all Types](#ctrl--t-open-all-types)
+        - [` CTRL + R` Open all resource files like](#ctrl--r-open-all-resource-files-like)
+        - [` CTRL + 1` Probabily the most use full commands,](#ctrl--1-probabily-the-most-use-full-commands)
+        - [` CTRL + SHIFT + O` Organize imports](#ctrl--shift--o-organize-imports)
+        - [` ALT + Left/Right Arrow`](#alt--leftright-arrow)
+        - [`ALT + Up/Down Arrow`](#alt--updown-arrow)
+        - [`CTRL + D`](#ctrl--d)
+        - [`Alt + Shift + S` Opens Source tag](#alt--shift--s-opens-source-tag)
+
 ## Show all shortcuts
 `Ctrl + Shift + L`
 

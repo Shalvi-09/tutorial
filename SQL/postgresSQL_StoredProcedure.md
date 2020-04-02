@@ -1,6 +1,15 @@
 
 http://thedeveloperspace.com/postgresql-finally-gets-stored-procedures/
 
+- [PostgreSQL finally gets Stored Procedures](#postgresql-finally-gets-stored-procedures)
+- [The Problem](#the-problem)
+- [Stored Procedures](#stored-procedures)
+  - [Overloaded Stored Procedures](#overloaded-stored-procedures)
+  - [Nested Stored Procedures](#nested-stored-procedures)
+- [Stored Procedure vs Function](#stored-procedure-vs-function)
+- [Why Stored Procedures?](#why-stored-procedures)
+- [Creating a new Stored Procedure](#creating-a-new-stored-procedure)
+- [Execute a Stored Procedure](#execute-a-stored-procedure)
 
 ##  PostgreSQL finally gets Stored Procedures 
 PostgreSQL has traditionally supported User Defined Functions since a long time. Functions allow us to store and execute procedural code repeatedly. The downside with Functions is its lack of support for Transactions in the Function body, the entire Function body is executed within an implicit transaction.

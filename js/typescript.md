@@ -1,5 +1,28 @@
 [Watch on Youtube](https://www.youtube.com/watch?v=WBPrJSw7yQA)
 
+
+
+- [This includes](#this-includes)
+- [TYpescript](#typescript)
+- [Environemnt](#environemnt)
+- [Auto compile `.ts` file to `.js` file](#auto-compile-ts-file-to-js-file)
+- [Run Js file from terminal itself](#run-js-file-from-terminal-itself)
+- [Variable Declaration](#variable-declaration)
+- [Variables type](#variables-type)
+  - [Array Declaration](#array-declaration)
+  - [Tuple](#tuple)
+  - [Enum datatype](#enum-datatype)
+  - [`Any` data type](#any-data-type)
+  - [Unknown type](#unknown-type)
+- [Type inference](#type-inference)
+- [union of types for a variable](#union-of-types-for-a-variable)
+- [functions](#functions)
+  - [optional parameter](#optional-parameter)
+  - [default parameter](#default-parameter)
+- [interface](#interface)
+- [class and access modifier](#class-and-access-modifier)
+  - [Access modifiers](#access-modifiers)
+
 ## This includes 
 
 * Environment Set
