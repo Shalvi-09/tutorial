@@ -1,6 +1,11 @@
 [https://www.baeldung.com/spring-boot-add-filter](https://www.baeldung.com/spring-boot-add-filter)
+
+
 [https://www.concretepage.com/spring-boot/spring-boot-filter](https://www.concretepage.com/spring-boot/spring-boot-filter)
 
+## When is filter executed and when is Interceptor executed
+
+![](https://synaren-app.com/images/spring-filter-interceptor-flow.png)
 
 A Filter can be registered using either FilterRegistrationBean class or `@Component` annotation or `@ServletComponentScan` annotation. FilterRegistrationBean registers a Filter as Spring bean and it provides methods to add URL mappings, set Filter order etc. When we register a Filter using Spring `@Component`, we can set Filter order using Spring `@Order` annotation but there is no way to change default URL mappings in this case. When we register Filter using `@ServletComponentScan`, our filters must be annotated with `@WebFilter` annotation and we can add URL mappings using its urlPatterns attribute but we cannot set Filter order in this case. `@ServletComponentScan` works __only when using embedded server__. Here on this page we will provide complete Spring Boot Filter example with filters, servlets and Spring controller.
 
