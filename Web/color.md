@@ -1,4 +1,9 @@
 
+# Color
+
+- [Color](#color)
+  - [1. Tints, Tones and Shades](#1-tints-tones-and-shades)
+  - [2. Color for Attention and Depth](#2-color-for-attention-and-depth)
 
 ## 1. [Tints, Tones and Shades](https://www.youtube.com/watch?v=H5TXHIXsgO4&list=PLgGbWId6zgaVkI3H31w_avkotSZCM3D9Y)
 
@@ -16,14 +21,27 @@ Now, here’s a quick look at an RGB based color wheel. Tints are when you add w
 
 ## 2. [Color for Attention and Depth](https://www.youtube.com/watch?v=Kno4couGkNo&list=PLgGbWId6zgaVkI3H31w_avkotSZCM3D9Y&index=6)
 
+
+
 The colors you choose in your designs can give the illusion of depth, making important things seem closer to the viewer and more likely to catch the eye. Learn how to use color for attention and depth in sixty seconds.
+![](img/color%20near%20and%20far.png)
 `Generally speaking, something closer to the eye seems brighter or more vivid, while something further away seems darker or more subdued. You can use this in your designs to create clear points of focus so the visitor knows where to look right away.`
 
 
-Start by deciding what you want your visitors to pay most attention to and then give that thing a nice vivid color. Surrounding elements can still be colorful, just make sure that they're not as bright as your main point of focus.
+Start by deciding what you want your visitors to pay most attention to and then give that thing a nice vivid color.
+![](img/color%202%20simple.png)
+This you can change to
+![](img/color%203%20.png)
+
+ Surrounding elements can still be colorful, just make sure that they're not as bright as your main point of focus.
+
+ ![](img/color5%20%20%20.png)
 
 
-Now add gradual changes in color brightness and saturation, to add layers of depth pushing important things forward, while less important things get pushed further back. That's how you can use color to control attention and add depth in 60 seconds.
+Now add gradual changes in color brightness and saturation, to add layers of depth pushing important things forward,
+![](img/color%206.png)
+![](img/color%207.png)
+ while less important things get pushed further back. That's how you can use color to control attention and add depth in 60 seconds.
 
 
 
