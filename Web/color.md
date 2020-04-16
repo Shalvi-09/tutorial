@@ -2,10 +2,11 @@
 # Color
 
 
-  - - [Color](#color)
+ - [Color](#color)
   - [1. Tints, Tones and Shades](#1-tints-tones-and-shades)
   - [2. Color for Attention and Depth](#2-color-for-attention-and-depth)
-  - [3. Analogous Colors](#analogous-colors)
+  - [3. Analogous Colors](#3-analogous-colors)
+  - [4. Complementary Colors](#4-complementary-colors)
 
 ## 1. [Tints, Tones and Shades](https://www.youtube.com/watch?v=H5TXHIXsgO4&list=PLgGbWId6zgaVkI3H31w_avkotSZCM3D9Y)
 
@@ -57,6 +58,21 @@ nature. There are harmonious, comfortable and pleasing to the eyes. For web desi
 Please note that analogous colors lack contrast, so the scheme you'll be creating won't be as vibrant as a complementary one. For example, this ad uses a complementary color scheme. Now here's the same ad, but with an analogous color scheme. See how the call to action stands out more on the complementary one?
 ![](img/analogous/analogous%205.png)
 So to wrap things up if you're looking for a harmonious and pleasing color scheme go for analogous. I'm Adi Purdila, thanks for watching.
+
+
+
+## 4. [Complementary Colors](https://www.youtube.com/watch?v=TwNp-5BY_9s&list=PLgGbWId6zgaVkI3H31w_avkotSZCM3D9Y&index=11)
+
+Complementary colors refer to a pair of colors that are opposite each other on the color wheel. Here is a very simple example:
+![](img/complementory/complementory%201.png)
+
+Red and green, or blue and orange, or this one. So, we pick one hue and then its opposite from the other side of the spectrum. Now, most of the time you'll want to use either a tint or a shade because the pure color is too vibrant and can produce unwanted effects. 
+For example this uses a pair of red and green but it's too heavy on the eyes.
+![](img/complementory/complementory%202.png)
+ Instead you could do this, just by using tints and varying the color proportion. 
+![](img/complementory/complementory%203.png)
+![](img/complementory/complementory%204.png)
+Same goes for this. Here's before and after. Or this, before and after. So be very careful how you use complementary colors because they have very high contrast. I'm Adi Purdila, thanks for watching.
 
 
 
