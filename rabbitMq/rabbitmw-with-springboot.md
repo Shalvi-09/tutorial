@@ -3,6 +3,12 @@
 
 # Spring Boot RabbitMQ Example
 
+
+- [Spring Boot RabbitMQ Example](#spring-boot-rabbitmq-example)
+  - [Installing RabbitMQ on Windows](#installing-rabbitmq-on-windows)
+  - [RabbitMQ Essentials](#rabbitmq-essentials)
+  - [Spring Boot RabbitMQ Project Setup](#spring-boot-rabbitmq-project-setup)
+
 RabbitMQ is a widely used AMQP broker. In this article, we will learn how to integrate RabbitMQ with Spring Boot and develop a message producer and consumer example app with RabbitMQ and spring boot.  We will be building a simple notification system and we will be testing the app with CommandLineRunner. 
 
 The producer will publish the message `to the direct exchange` with `routing key` and the consumer `consumes` this message `asynchronously`.
