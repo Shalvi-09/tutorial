@@ -43,6 +43,21 @@ Now add gradual changes in color brightness and saturation, to add layers of dep
 ![](img/color%207.png)
  while less important things get pushed further back. That's how you can use color to control attention and add depth in 60 seconds.
 
+## [Analogous Colors](https://www.youtube.com/watch?v=Ny35CtVMlMI&list=PLgGbWId6zgaVkI3H31w_avkotSZCM3D9Y&index=7)
+
+Analogous colors sit next to each other on the color wheel. If we rotate this around the wheel, we will see some great color schemes and these are often found in nature.
+
+
+
+nature. There are harmonious, comfortable and pleasing to the eyes. For web design it’s recommended you use a maximum of three colors. The rest should be neutral, otherwise you risk over-complicating your composition.
+
+
+Please note that analogous colors lack contrast, so the scheme you'll be creating won't be as vibrant as a complementary one. For example, this ad uses a complementary color scheme.
+
+
+Now here's the same ad, but with an analogous color scheme. See how the call to action stands out more on the complementary one?
+
+So to wrap things up if you're looking for a harmonious and pleasing color scheme go for analogous. I'm Adi Purdila, thanks for watching.
 
 
 
