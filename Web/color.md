@@ -4,6 +4,7 @@
 - [Color](#color)
   - [1. Tints, Tones and Shades](#1-tints-tones-and-shades)
   - [2. Color for Attention and Depth](#2-color-for-attention-and-depth)
+  - [Analogous Colors](#analogous-colors)
 
 ## 1. [Tints, Tones and Shades](https://www.youtube.com/watch?v=H5TXHIXsgO4&list=PLgGbWId6zgaVkI3H31w_avkotSZCM3D9Y)
 
@@ -47,16 +48,13 @@ Now add gradual changes in color brightness and saturation, to add layers of dep
 
 Analogous colors sit next to each other on the color wheel. If we rotate this around the wheel, we will see some great color schemes and these are often found in nature.
 
-
+![](img/analogous/analogous%20color%201.png)
+![](img/analogous/analogous%20color%202.png)
 
 nature. There are harmonious, comfortable and pleasing to the eyes. For web design it’s recommended you use a maximum of three colors. The rest should be neutral, otherwise you risk over-complicating your composition.
 
-
-Please note that analogous colors lack contrast, so the scheme you'll be creating won't be as vibrant as a complementary one. For example, this ad uses a complementary color scheme.
-
-
-Now here's the same ad, but with an analogous color scheme. See how the call to action stands out more on the complementary one?
-
+Please note that analogous colors lack contrast, so the scheme you'll be creating won't be as vibrant as a complementary one. For example, this ad uses a complementary color scheme. Now here's the same ad, but with an analogous color scheme. See how the call to action stands out more on the complementary one?
+![](img/analogous/analogous%205.png)
 So to wrap things up if you're looking for a harmonious and pleasing color scheme go for analogous. I'm Adi Purdila, thanks for watching.
 
 
