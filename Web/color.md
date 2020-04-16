@@ -1,10 +1,11 @@
 
 # Color
 
-- [Color](#color)
+
+  - - [Color](#color)
   - [1. Tints, Tones and Shades](#1-tints-tones-and-shades)
   - [2. Color for Attention and Depth](#2-color-for-attention-and-depth)
-  - [Analogous Colors](#analogous-colors)
+  - [3. Analogous Colors](#analogous-colors)
 
 ## 1. [Tints, Tones and Shades](https://www.youtube.com/watch?v=H5TXHIXsgO4&list=PLgGbWId6zgaVkI3H31w_avkotSZCM3D9Y)
 
@@ -44,7 +45,7 @@ Now add gradual changes in color brightness and saturation, to add layers of dep
 ![](img/color%207.png)
  while less important things get pushed further back. That's how you can use color to control attention and add depth in 60 seconds.
 
-## [Analogous Colors](https://www.youtube.com/watch?v=Ny35CtVMlMI&list=PLgGbWId6zgaVkI3H31w_avkotSZCM3D9Y&index=7)
+## 3. [Analogous Colors](https://www.youtube.com/watch?v=Ny35CtVMlMI&list=PLgGbWId6zgaVkI3H31w_avkotSZCM3D9Y&index=7)
 
 Analogous colors sit next to each other on the color wheel. If we rotate this around the wheel, we will see some great color schemes and these are often found in nature.
 
