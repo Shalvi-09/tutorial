@@ -111,9 +111,9 @@ But still it will have in printing intial standard output things for that use `-
 
 ### Port mapping
 
-use `-p <Internal Port>:<desired external/host port>`
+use `-p <Host Port>:<docker cotaier port>`
 
-`docker -p 5432:1234 postgres` will map the internal port 5432 to external port at 1234.
+`docker -p 5432:1234 postgres` will map the docker cotainer port 1234 to host port at 5432.
 
 `docker -p 8080:5000 myapp`
 
