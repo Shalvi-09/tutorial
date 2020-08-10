@@ -1,0 +1,13 @@
+
+
+#BST
+Binary Search tree, is a data structure with following constraints:
+A Binary Tree is a tree data structure in which each node has at most two children, which are referred to as the left child and the right child and the topmost node in the tree is called the root.
+
+![](https://miro.medium.com/max/700/0*dnxsog7j73vXPnr0.jpg)
+
+
+
+And,
+![](https://miro.medium.com/max/295/0*MMmoQZvdGBaQAFp2)
+
